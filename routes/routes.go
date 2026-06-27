@@ -30,8 +30,5 @@ func Setup(
 		tickets.PATCH("/:id/status", ticketController.UpdateStatus)
 	}
 
-	router.Static("/static", "./frontend")
-	router.GET("/", func(c *gin.Context) {
-		c.File("./frontend/index.html")
-	})
+	
 }
