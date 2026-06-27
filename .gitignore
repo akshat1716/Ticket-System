@@ -1,0 +1,19 @@
+# Binaries
+ticket-system
+*.exe
+
+# Local Go toolchain (dev only)
+.tools/
+
+# Environment
+.env
+
+# Database
+*.db
+
+# OS
+.DS_Store
+
+# IDE
+.idea/
+.vscode/

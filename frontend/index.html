@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ticket System</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>Ticket System</h1>
+      <p class="subtitle">Test the backend API from your browser</p>
+    </header>
+
+    <div id="alert" class="alert hidden"></div>
+
+    <section id="auth-section" class="card">
+      <div class="tabs">
+        <button type="button" class="tab active" data-tab="login">Login</button>
+        <button type="button" class="tab" data-tab="register">Register</button>
+      </div>
+
+      <form id="login-form" class="form">
+        <label>
+          Email
+          <input type="email" name="email" placeholder="john@example.com" required>
+        </label>
+        <label>
+          Password
+          <input type="password" name="password" placeholder="password123" required>
+        </label>
+        <button type="submit">Login</button>
+      </form>
+
+      <form id="register-form" class="form hidden">
+        <label>
+          Name
+          <input type="text" name="name" placeholder="John Doe" required>
+        </label>
+        <label>
+          Email
+          <input type="email" name="email" placeholder="john@example.com" required>
+        </label>
+        <label>
+          Password
+          <input type="password" name="password" placeholder="At least 6 characters" required>
+        </label>
+        <button type="submit">Register</button>
+      </form>
+    </section>
+
+    <section id="dashboard" class="hidden">
+      <div class="card user-bar">
+        <div>
+          <strong id="user-email">Logged in</strong>
+          <span class="badge" id="health-badge">Checking health...</span>
+        </div>
+        <button type="button" id="logout-btn" class="secondary">Logout</button>
+      </div>
+
+      <div class="grid">
+        <section class="card">
+          <h2>Create Ticket</h2>
+          <form id="create-ticket-form" class="form">
+            <label>
+              Title
+              <input type="text" name="title" placeholder="Fix login bug" required>
+            </label>
+            <label>
+              Description
+              <input type="text" name="description" placeholder="Optional details">
+            </label>
+            <button type="submit">Create Ticket</button>
+          </form>
+        </section>
+
+        <section class="card">
+          <div class="section-header">
+            <h2>My Tickets</h2>
+            <button type="button" id="refresh-btn" class="secondary">Refresh</button>
+          </div>
+          <div id="tickets-list" class="tickets-list">
+            <p class="empty">No tickets yet.</p>
+          </div>
+        </section>
+      </div>
+    </section>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
