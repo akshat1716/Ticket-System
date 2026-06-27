@@ -31,6 +31,14 @@ func main() {
 	router.Use(middleware.Logging())
 	router.Use(middleware.Recovery())
 
+	// Serve static frontend files
+router.Static("/static", "./frontend")
+
+// Serve homepage
+router.GET("/", func(c *gin.Context) {
+	c.File("./frontend/index.html")
+})
+
 	routes.Setup(router, authController, ticketController, cfg.JWTSecret)
 
 	log.Printf("Server starting on port %s", cfg.Port)
