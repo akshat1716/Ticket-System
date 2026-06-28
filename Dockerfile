@@ -12,7 +12,7 @@ COPY . .
 
 RUN CGO_ENABLED=1 GOOS=linux go build -o ticket-system ./cmd/main.go
 
-# Run stage
+# Runtime stage
 FROM alpine:latest
 
 RUN apk --no-cache add ca-certificates
@@ -20,6 +20,7 @@ RUN apk --no-cache add ca-certificates
 WORKDIR /root/
 
 COPY --from=builder /app/ticket-system .
+COPY --from=builder /app/frontend ./frontend
 
 ENV PORT=8080
 ENV DATABASE_PATH=/root/ticket_system.db
